@@ -1,7 +1,7 @@
 module_metasploit
 ==============
 
-FruityWiFi metasploit module
+BlackBlulb metasploit module
 
 
 v1.1
