@@ -52,10 +52,10 @@ if ($type == "handler") {
 		$newdata = preg_replace("/[\n\r]/",  "", $newdata);
 		$save_in_file = "handler.rc";
         $exec = "$bin_echo '$newdata' | base64 --decode > $mod_path/includes/$save_in_file";
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
         $exec = "$bin_dos2unix $mod_path/includes/$save_in_file";
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
     }
 
     header('Location: ../index.php?tab=0');
@@ -68,10 +68,10 @@ if ($type == "auto") {
 		$newdata = preg_replace("/[\n\r]/",  "", $newdata);
 		$save_in_file = "auto.rc";
         $exec = "$bin_echo '$newdata' | base64 --decode > $mod_path/includes/$save_in_file";
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
         
         $exec = "$bin_dos2unix $mod_path/includes/$save_in_file";
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
     }
 
     header('Location: ../index.php?tab=1');

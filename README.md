@@ -11,6 +11,6 @@ v1.1
 
 v1.0
 ---------------------------------
-- FruityWifi v2.4 is required
+- BlackBulb v2.4 is required
 - metasploit is required
 - tmux is required

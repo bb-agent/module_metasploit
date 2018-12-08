@@ -67,14 +67,14 @@ $service = $_POST["service"];
 // DELETE LOG
 if ($logfile != "" and $action == "delete") {
     $exec = "rm ".$mod_logs_history.$logfile.".log";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 }
 
 // SET MODE
 if ($_POST["change_mode"] == "1") {
     $ss_mode = $service;
     $exec = "/bin/sed -i 's/ss_mode.*/ss_mode = \\\"".$ss_mode."\\\";/g' includes/options_config.php";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 }
 
 include "includes/options_config.php";
@@ -94,7 +94,7 @@ include "includes/options_config.php";
     ?>
     <?
     $exec = $mod_isup;
-    $ismoduleup = exec_fruitywifi($exec);
+    $ismoduleup = exec_blackbulb($exec);
     if ($ismoduleup[0] != "") {
         echo "&nbsp; $mod_alias  <font color='lime'><b>enabled</b></font>.&nbsp; | <a href='includes/module_action.php?service=$mod_name&action=stop&page=module'><b>stop</b></a>";
     } else { 
@@ -105,7 +105,7 @@ include "includes/options_config.php";
     /*
     echo "<br>";
     $exec = "nmap 127.0.0.1 -p6662 -sS |grep -iEe '6662/tcp.+open'";
-    $ismoduleup = exec_fruitywifi($exec);
+    $ismoduleup = exec_blackbulb($exec);
     if ($ismoduleup[0] != "") {
         echo "&nbsp;&nbsp;&nbsp;&nbsp; Handler  <font color='lime'><b>enabled</b></font>.";
     } else { 

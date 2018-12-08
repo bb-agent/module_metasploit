@@ -49,18 +49,18 @@ if($service == $mod_name) {
         // COPY LOG
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
             
             $exec = "echo '' > $mod_logs";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
 		
 		$exec = "/etc/init.d/postgresql restart";
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
 		
 		//$exec = "screen -d -m $bin_msfconsole -a -r handler.rc";
 		$exec = "tmux new -s METASPLOIT -d '$bin_msfconsole -r handler.rc'";
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
 		
     } else if($action == "stop") {
 	
@@ -69,15 +69,15 @@ if($service == $mod_name) {
 		exec($exec,$output);
 		
 		$exec = "kill " . $output[0];
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 	
 		// COPY LOG
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
             
             $exec = "echo '' > $mod_logs";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
 	
     }
@@ -87,10 +87,10 @@ if($service == $mod_name) {
 if ($install == "install_$mod_name") {
 
     $exec = "chmod 755 install.sh";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
     
     $exec = "$bin_sudo ./install.sh > $log_path/install.txt &";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     header("Location: ../../install.php?module=$mod_name");
     exit;
